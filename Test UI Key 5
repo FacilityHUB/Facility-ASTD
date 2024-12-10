@@ -2,24 +2,23 @@ local FacilityLibrary = loadstring(
 	game:HttpGet("https://raw.githubusercontent.com/FacilityHUB/Facility-Key/refs/heads/main/Beta/V1.0.0.0c")
 )()
 
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local ValidateBTN, EnterKey, GetKBTN
-
 local function applyUICorner(element, cornerRadius)
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, cornerRadius)
-    corner.Parent = element
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, cornerRadius)
+	corner.Parent = element
 end
 
 local function applyUIStroke(element)
-    local stroke = Instance.new("UIStroke")
-    stroke.Color = Color3.fromRGB(72, 72, 72)
-    stroke.Thickness = 1
-    stroke.Transparency = 0
-    stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    stroke.Parent = element
+	local stroke = Instance.new("UIStroke")
+	stroke.Color = Color3.fromRGB(72, 72, 72)
+	stroke.Thickness = 1
+	stroke.Transparency = 0
+	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	stroke.Parent = element
 end
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
 
 ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.Name = "Facility"
@@ -44,6 +43,17 @@ TitleLabel.TextScaled = true
 TitleLabel.Position = UDim2.new(0, 0, 0.043, 0)
 TitleLabel.Parent = Frame
 
+local ErrorMessage = Instance.new("TextLabel")
+ErrorMessage.Name = "ErrorMessage"
+ErrorMessage.Text = ""
+ErrorMessage.Size = UDim2.new(0, 349, 0, 50)
+ErrorMessage.TextColor3 = Color3.fromRGB(100, 100, 100)
+ErrorMessage.BackgroundTransparency = 1
+ErrorMessage.Font = Enum.Font.SourceSans
+ErrorMessage.TextSize = 24
+ErrorMessage.Position = UDim2.new(0.136, 0, 0.745, 0)
+ErrorMessage.Parent = Frame
+
 local FrameIdkey = Instance.new("Frame")
 FrameIdkey.Name = "Id+Key"
 FrameIdkey.Size = UDim2.new(0, 350, 0, 32)
@@ -53,7 +63,7 @@ FrameIdkey.Parent = Frame
 applyUICorner(FrameIdkey, 15)
 applyUIStroke(FrameIdkey)
 
-EnterKey = Instance.new("TextBox")
+local EnterKey = Instance.new("TextBox")
 EnterKey.Name = "EnterKey"
 EnterKey.Text = ""
 EnterKey.Size = UDim2.new(0, 350, 0, 31)
@@ -71,7 +81,7 @@ ValidateKey.Parent = Frame
 applyUICorner(ValidateKey, 10)
 applyUIStroke(ValidateKey)
 
-ValidateBTN = Instance.new("TextButton")
+local ValidateBTN = Instance.new("TextButton")
 ValidateBTN.Name = "ValidateKey"
 ValidateBTN.Text = "Validate Key"
 ValidateBTN.Size = UDim2.new(0, 157, 0, 33)
@@ -89,7 +99,7 @@ GetKey.Parent = Frame
 applyUICorner(GetKey, 10)
 applyUIStroke(GetKey)
 
-GetKBTN = Instance.new("TextButton")
+local GetKBTN = Instance.new("TextButton")
 GetKBTN.Name = "GetKey"
 GetKBTN.Text = "Get Key"
 GetKBTN.Size = UDim2.new(0, 157, 0, 33)
@@ -98,8 +108,3 @@ GetKBTN.TextColor3 = Color3.fromRGB(99, 99, 99)
 GetKBTN.BackgroundTransparency = 1
 GetKBTN.Parent = GetKey
 
-return {
-    ValidateBTN = ValidateBTN,
-    EnterKey = EnterKey,
-    GetKBTN = GetKBTN
-}
