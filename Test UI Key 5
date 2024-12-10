@@ -17,21 +17,6 @@ local function applyUIStroke(element)
 	stroke.Parent = element
 end
 
--- Fonction pour sauvegarder la clé
-local function saveKeyToFile(key)
-	if writefile then
-		writefile("saved_key.txt", key)
-	end
-end
-
--- Fonction pour charger la clé
-local function loadKeyFromFile()
-	if readfile and isfile and isfile("saved_key.txt") then
-		return readfile("saved_key.txt")
-	end
-	return nil
-end
-
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 
@@ -123,28 +108,9 @@ GetKBTN.TextColor3 = Color3.fromRGB(99, 99, 99)
 GetKBTN.BackgroundTransparency = 1
 GetKBTN.Parent = GetKey
 
--- Chargement de la clé au démarrage
-local savedKey = loadKeyFromFile()
-if savedKey then
-	EnterKey.Text = savedKey
-	-- Auto-valider la clé si elle est présente
-	ErrorMessage.Text = "Key loaded: " .. savedKey
-else
-	ErrorMessage.Text = "No saved key found."
-end
-
--- Bouton de validation
-ValidateBTN.MouseButton1Click:Connect(function()
-	if EnterKey.Text ~= "" then
-		ErrorMessage.Text = "Key validated successfully!"
-		saveKeyToFile(EnterKey.Text)
-	else
-		ErrorMessage.Text = "Key validation failed!"
-	end
-end)
-
 -- Retourne les éléments pour l'accès direct
 return {
+    ScreenGui = ScreenGui,
     ValidateBTN = ValidateBTN,
     GetBTN = GetKBTN,
     EnterKey = EnterKey,
