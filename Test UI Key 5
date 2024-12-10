@@ -116,5 +116,11 @@ return {
     FacilityLibrary = FacilityLibrary,
     GetEnterKeyText = function()
         return EnterKey.Text
+    end,
+    SetErrorMessage = function(text)
+        ErrorMessage.Text = text
+    end,
+    GetErrorMessageText = function()
+        return ErrorMessage.Text
     end
 }
