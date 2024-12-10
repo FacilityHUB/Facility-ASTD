@@ -2,23 +2,24 @@ local FacilityLibrary = loadstring(
 	game:HttpGet("https://raw.githubusercontent.com/FacilityHUB/Facility-Key/refs/heads/main/Beta/V1.0.0.0c")
 )()
 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ValidateBTN, EnterKey, GetKBTN
+
 local function applyUICorner(element, cornerRadius)
-	local corner = Instance.new("UICorner")
-	corner.CornerRadius = UDim.new(0, cornerRadius)
-	corner.Parent = element
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, cornerRadius)
+    corner.Parent = element
 end
 
 local function applyUIStroke(element)
-	local stroke = Instance.new("UIStroke")
-	stroke.Color = Color3.fromRGB(72, 72, 72)
-	stroke.Thickness = 1
-	stroke.Transparency = 0
-	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	stroke.Parent = element
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(72, 72, 72)
+    stroke.Thickness = 1
+    stroke.Transparency = 0
+    stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    stroke.Parent = element
 end
-
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
 
 ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.Name = "Facility"
@@ -42,17 +43,6 @@ TitleLabel.Font = Enum.Font.SourceSansBold
 TitleLabel.TextScaled = true
 TitleLabel.Position = UDim2.new(0, 0, 0.043, 0)
 TitleLabel.Parent = Frame
-
-ErrorMessage = Instance.new("TextLabel")
-ErrorMessage.Name = "ErrorMessage"
-ErrorMessage.Text = ""
-ErrorMessage.Size = UDim2.new(0, 349, 0, 50)
-ErrorMessage.TextColor3 = Color3.fromRGB(100, 100, 100)
-ErrorMessage.BackgroundTransparency = 1
-ErrorMessage.Font = Enum.Font.SourceSans
-ErrorMessage.TextSize = 24
-ErrorMessage.Position = UDim2.new(0.136, 0, 0.745, 0)
-ErrorMessage.Parent = Frame
 
 local FrameIdkey = Instance.new("Frame")
 FrameIdkey.Name = "Id+Key"
@@ -107,3 +97,9 @@ GetKBTN.Position = UDim2.new(0, 0, 0, 0)
 GetKBTN.TextColor3 = Color3.fromRGB(99, 99, 99)
 GetKBTN.BackgroundTransparency = 1
 GetKBTN.Parent = GetKey
+
+return {
+    ValidateBTN = ValidateBTN,
+    EnterKey = EnterKey,
+    GetKBTN = GetKBTN
+}
