@@ -113,5 +113,8 @@ return {
     ValidateBTN = ValidateBTN,
     GetBTN = GetKBTN,
     EnterKey = EnterKey,
-    FacilityLibrary = FacilityLibrary
+    FacilityLibrary = FacilityLibrary,
+    GetEnterKeyText = function()
+        return EnterKey.Text
+    end
 }
