@@ -19,16 +19,14 @@ end
 
 -- Fonction pour sauvegarder la clé
 local function saveKeyToFile(key)
-	local file = writefile or function() end -- Vérifie si `writefile` est disponible
-	if file then
+	if writefile then
 		writefile("saved_key.txt", key)
 	end
 end
 
 -- Fonction pour charger la clé
 local function loadKeyFromFile()
-	local file = readfile or function() return nil end -- Vérifie si `readfile` est disponible
-	if file and isfile and isfile("saved_key.txt") then
+	if readfile and isfile and isfile("saved_key.txt") then
 		return readfile("saved_key.txt")
 	end
 	return nil
@@ -130,17 +128,20 @@ local savedKey = loadKeyFromFile()
 if savedKey then
 	EnterKey.Text = savedKey
 	-- Auto-valider la clé si elle est présente
-	ValidateBTN.MouseButton1Click:Connect(function()
-		if EnterKey.Text ~= "" then
-			ErrorMessage.Text = "Key validated successfully!"
-			saveKeyToFile(EnterKey.Text)
-		else
-			ErrorMessage.Text = "Key validation failed!"
-		end
-	end)
+	ErrorMessage.Text = "Key loaded: " .. savedKey
 else
 	ErrorMessage.Text = "No saved key found."
 end
+
+-- Bouton de validation
+ValidateBTN.MouseButton1Click:Connect(function()
+	if EnterKey.Text ~= "" then
+		ErrorMessage.Text = "Key validated successfully!"
+		saveKeyToFile(EnterKey.Text)
+	else
+		ErrorMessage.Text = "Key validation failed!"
+	end
+end)
 
 -- Retourne les éléments pour l'accès direct
 return {
@@ -150,4 +151,3 @@ return {
     ErrorMessage = ErrorMessage,
     FacilityLibrary = FacilityLibrary
 }
-print("coucou")
