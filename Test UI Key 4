@@ -43,7 +43,7 @@ TitleLabel.TextScaled = true
 TitleLabel.Position = UDim2.new(0, 0, 0.043, 0)
 TitleLabel.Parent = Frame
 
-local ErrorMessage = Instance.new("TextLabel")
+ErrorMessage = Instance.new("TextLabel")
 ErrorMessage.Name = "ErrorMessage"
 ErrorMessage.Text = ""
 ErrorMessage.Size = UDim2.new(0, 349, 0, 50)
@@ -63,7 +63,7 @@ FrameIdkey.Parent = Frame
 applyUICorner(FrameIdkey, 15)
 applyUIStroke(FrameIdkey)
 
-local EnterKey = Instance.new("TextBox")
+EnterKey = Instance.new("TextBox")
 EnterKey.Name = "EnterKey"
 EnterKey.Text = ""
 EnterKey.Size = UDim2.new(0, 350, 0, 31)
