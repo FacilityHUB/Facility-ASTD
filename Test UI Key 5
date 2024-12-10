@@ -108,19 +108,11 @@ GetKBTN.TextColor3 = Color3.fromRGB(99, 99, 99)
 GetKBTN.BackgroundTransparency = 1
 GetKBTN.Parent = GetKey
 
--- Retourne les éléments pour l'accès
+-- Retourne les éléments pour l'accès direct
 return {
     ValidateBTN = ValidateBTN,
     GetBTN = GetKBTN,
     EnterKey = EnterKey,
-    FacilityLibrary = FacilityLibrary,
-    GetEnterKeyText = function()
-        return EnterKey.Text
-    end,
-    SetErrorMessage = function(text)
-        ErrorMessage.Text = text
-    end,
-    GetErrorMessageText = function()
-        return ErrorMessage.Text
-    end
+    ErrorMessage = ErrorMessage,
+    FacilityLibrary = FacilityLibrary
 }
