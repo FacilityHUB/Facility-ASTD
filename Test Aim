@@ -42,7 +42,7 @@ Configuration = {
 }
 
 local FOV = Drawing.new("Circle")
-Aimbot.FOV = FOV
+Configuration.FOV = FOV
 FOV.Visible = Configuration.Visible
 FOV.Thickness = Configuration.Thickness
 FOV.Color = Configuration.Color
