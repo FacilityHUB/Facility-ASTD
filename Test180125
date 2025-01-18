@@ -5,7 +5,7 @@ local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 local Cam = workspace.CurrentCamera
 local Mouse = Players.LocalPlayer:GetMouse()
-
+function Aimbot.Load()
 Aimbot.Configuration = {
     -- Checks
     TeamCheck = false,
@@ -273,9 +273,6 @@ task.spawn(function()
         end
     end
 end)
-
-function Aimbot.Load()
-    Aimbot.Configuration.AimKey = newKey
 
 UserInputService.InputBegan:Connect(function(input)
     if input.UserInputType == Aimbot.Configuration.AimKey and Aimbot.Configuration.AimBotEnabled then
