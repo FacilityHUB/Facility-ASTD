@@ -274,11 +274,9 @@ task.spawn(function()
     end
 end)
 
-function Aimbot.UpdateAimKey(newKey)
-    Aimbot.Configuration.AimKey = newKey
-end
-
 function Aimbot.Load()
+    Aimbot.Configuration.AimKey = newKey
+
 UserInputService.InputBegan:Connect(function(input)
     if input.UserInputType == Aimbot.Configuration.AimKey and Aimbot.Configuration.AimBotEnabled then
         if Aimbot.Configuration.AimToggleMode then
